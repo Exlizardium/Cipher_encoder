@@ -1,0 +1,17 @@
+.header-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--background-color-main);
+
+  .header-navigation__button {
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.dark-mode {
+    background-color: #6d9bd3;
+}

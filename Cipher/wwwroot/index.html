@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Away</title>
+    <link rel="icon" href="img/bill-cipher-favicon.png" type="image/x-icon" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.2"
+      data-hx-boost="true"
+    ></script>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="header-navigation"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="global.header-nav.partial.html"
+      ></nav>
+    </header>
+    <main>
+      <section
+        class="encoder"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.encoder.partial.html"
+      ></section>
+      <section
+        class="decoder"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.decoder.partial.html"
+      ></section>     
+    </main>  
+    <div
+      class = "popup-overlay"
+      data-hx-trigger="load"
+      data-hx-get="components.output-popup.partial.html"
+      data-hx-swap="outerHTML"
+    ></div> 
+    <footer
+      class="footer"
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="global.footer.partial.html"
+    ></footer>
+    <script src="js/index.js"></script>
+  </body>
+</html>
