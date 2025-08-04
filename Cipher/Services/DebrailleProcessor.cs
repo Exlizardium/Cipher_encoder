@@ -1,5 +1,6 @@
 ﻿using Cipher.Models;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Cipher.Services
 {
@@ -9,6 +10,8 @@ namespace Cipher.Services
 
         public override MessageResponse Process(MessageInput input)
         {
+            ValidateInput(input);
+
             var debrailleMap = new Dictionary<string, char>
             {
                 ["⠁"] = 'a',
@@ -45,6 +48,11 @@ namespace Cipher.Services
 
             foreach (char brailleChar in inputInChar)
             {
+                if (!debrailleMap.ContainsKey(brailleChar.ToString()))
+                {
+                    throw new ArgumentException("Input contains invalid characters. Only latin characters are allowed.", nameof(input.Input));
+                }
+
                 result.Append(debrailleMap.TryGetValue(brailleChar.ToString(), out var regularChar)
                     ? regularChar
                     : brailleChar);

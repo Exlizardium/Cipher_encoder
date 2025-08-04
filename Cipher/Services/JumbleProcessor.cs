@@ -9,6 +9,8 @@ namespace Cipher.Services
 
         public override MessageResponse Process(MessageInput input)
         {
+            ValidateInput(input);
+
             StringBuilder binaryOutput = new StringBuilder();
 
             foreach (char c in input.Input.ToCharArray())

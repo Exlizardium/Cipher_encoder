@@ -8,6 +8,7 @@ namespace Cipher.Services
 
         public override MessageResponse Process(MessageInput input)
         {
+            ValidateInput(input);
             var reversed = new string(input.Input.Reverse().ToArray());
             return new MessageResponse
             {
